@@ -33,14 +33,14 @@ export const HomePage = () => {
       )}         
       <Container fluid>
         <Row>
-          <Col xs={8} md={4}>
+          <Col xs={6} md={2}>
             <CardContainer 
               title="Engenharia" 
               image="https://picsum.photos/id/737/200/300" 
               total={0} 
             />
           </Col>
-          <Col xs={8} md={4}>
+          <Col xs={6} md={2}>
             <CardContainer 
               title="Física" 
               image="https://picsum.photos/id/7/200/300" 

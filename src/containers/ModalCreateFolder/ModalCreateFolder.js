@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Form } from "react-bootstrap";
 import { Modal } from "../../components/Modal/Modal";
 import { useAppContext } from "../../store/AppContext";
 import { closeModalsAction, saveFolderAction } from "../../store/actions";
+import { saveFolderInitType, saveFolderSuccessType } from "../../store/types";
 
 export const ModalCreateFolder = ({ open }) => {
   const { state, dispatch } = useAppContext();
@@ -24,6 +25,12 @@ export const ModalCreateFolder = ({ open }) => {
     //handleClose()
   };
 
+  useEffect(() => {
+    if (state.type === saveFolderSuccessType) {
+      handleClose();
+    }
+  }, [state.type])
+
   return(
     <Modal 
       open={open}
@@ -34,7 +41,7 @@ export const ModalCreateFolder = ({ open }) => {
           label: 'Criar e salvar',
           loadingLabel: 'Criando',
           variant: 'secondary',
-          loading: false,
+          loading: state.type === saveFolderInitType,
           type: 'submit',
           form: 'form-criar-pasta',
         }
