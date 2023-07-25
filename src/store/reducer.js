@@ -6,7 +6,8 @@ export function reducer(state, action) {
       return {
         ...state,
         type: types.openModalSavePinType,
-        mode: 'savePin'
+        mode: 'savePin',
+        activePinId: action.payload
       }
     case types.closeModalsType:
       return {
@@ -39,6 +40,17 @@ export function reducer(state, action) {
           ...state.folders,
           action.payload
         ]
+      }
+    case types.savePinInFolderSuccessType:
+      return {
+        ...state,
+        type: types.savePinInFolderSuccessType,
+        folders: action.payload
+      }
+    case types.fetchPinsSuccessType:
+      return {
+        ...state,
+        pins: action.payload
       }
     
     default:

@@ -4,9 +4,10 @@ import { openModalSavePinAction } from "../../store/actions";
 
 export const CardContainer = (props) => {
   const { dispatch } = useAppContext();
-  const handleClick = () => {
-    console.log('Clicou do CardContainer')
-    dispatch(openModalSavePinAction())
+
+  const handleClick = (pinId) => {
+    //console.log('Clicou do CardContainer', pinId)
+    dispatch(openModalSavePinAction(pinId))
   }
 
   return (

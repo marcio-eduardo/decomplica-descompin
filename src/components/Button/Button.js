@@ -8,23 +8,23 @@ export const Button = (
     loadingLabel,
     ...buttonProps
   }) => {
-  return (
-    <ButtonBS {...buttonProps}>
-      {loading && (
-        <>
-          <Spinner
-            as="span"
-            animation="border"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          ><span className="visually-hidden">Loading...</span>
-          </Spinner>
-          {' '}
-        </>
-        
-      )}
-      {loading ? loadingLabel : label}
-    </ButtonBS>
-  )
+    return (
+      <ButtonBS {...buttonProps}>
+        {loading && (
+          <>
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            ><span className="visually-hidden">Loading...</span>
+            </Spinner>
+            {' '}
+          </>
+          
+        )}
+        {loading ? loadingLabel : label}
+      </ButtonBS>
+    )
 }
